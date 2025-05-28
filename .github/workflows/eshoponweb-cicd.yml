@@ -31,9 +31,9 @@ jobs:
         run: npm run build
 
       # Zip the build output
-      - name: Zip build folder
+      - name: Zip Vite dist folder
         run: |
-          cd build
+          cd dist
           zip -r ../app.zip .
 
       # Upload build artifact
