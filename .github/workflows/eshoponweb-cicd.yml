@@ -28,7 +28,7 @@ jobs:
 
       # Build React App
       - name: Build React App
-        run: npm run build
+        run: npx vite build
 
       # Zip the build output
       - name: Zip Vite dist folder
