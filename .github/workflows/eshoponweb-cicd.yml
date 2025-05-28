@@ -1,4 +1,4 @@
-name: eShopOnWeb Build and Test
+name: Expanger Build and Test
 
 #Triggers-
 on: [push, workflow_dispatch]
