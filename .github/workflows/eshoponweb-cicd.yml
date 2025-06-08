@@ -60,11 +60,11 @@ jobs:
       name: 'Development'
     steps:
       # Download React app artifact
-      - name: Download React app artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: react-app
-          path: react-app
+      # - name: Download React app artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: react-app
+      #     path: react-app
 
       # Download Bicep template
       - name: Download Bicep template
