@@ -10,7 +10,7 @@ env:
   WEBAPP-NAME: Expanger-Web-app
 
 jobs:
-   buildandtest:
+  buildandtest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install Dependencies
         run: npm install
@@ -43,11 +43,11 @@ jobs:
           name: bicep-template
           path: ${{ env.TEMPLATE-FILE }}
 
-   deploy:
+  deploy:
     runs-on: ubuntu-latest
     needs: buildandtest
     environment:
-      name: 'Development'
+      name: "Development"
     steps:
       # Download React app artifact
       - name: Download React app artifact
@@ -76,7 +76,7 @@ jobs:
           subscriptionId: ${{ env.SUBSCRIPTION-ID }}
           resourceGroupName: ${{ env.RESOURCE-GROUP }}
           template: bicep-template/webapp.bicep
-          parameters: 'webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}'
+          parameters: "webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}"
           failOnStdErr: false
 
       # Deploy React app to Azure WebApp using CLI
@@ -85,3 +85,5 @@ jobs:
         with:
           inlineScript: |
             az webapp deploy --name ${{ env.WEBAPP-NAME }} --resource-group ${{ env.RESOURCE-GROUP }} --src-path react-app/app.zip --type zip
+
+        
