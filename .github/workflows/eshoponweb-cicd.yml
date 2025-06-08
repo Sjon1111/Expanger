@@ -34,17 +34,17 @@ jobs:
 
 
       # Zip the build output
-      - name: Zip Vite dist folder
-        run: |
-          cd dist
-          zip -r ../app.zip .
+      # - name: Zip Vite dist folder
+      #   run: |
+      #     cd dist
+      #     zip -r ../app.zip .
 
       # Upload build artifact
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: react-app
-          path: /dist
+          path: react-app
 
       # Upload Bicep template
       - name: Upload Bicep Template
