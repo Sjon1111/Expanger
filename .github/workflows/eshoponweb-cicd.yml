@@ -35,17 +35,17 @@ jobs:
 
 
       # Zip the build output
-      - name: Zip Vite dist folder
-        run: |
-          cd dist
-          zip -r ../app.zip .
+      # - name: Zip Vite dist folder
+      #   run: |
+      #     cd dist
+      #     zip -r ../app.zip .
 
       # Upload build artifact
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: react-app
-          path: app.zip
+          path: /dist
 
       # Upload Bicep template
       - name: Upload Bicep Template
@@ -95,4 +95,4 @@ jobs:
         uses: azure/cli@v2
         with:
           inlineScript: |
-            az webapp deploy --name ${{ env.WEBAPP-NAME }} --resource-group ${{ env.RESOURCE-GROUP }} --src-path react-app/app.zip --type zip
+            az webapp deploy --name ${{ env.WEBAPP-NAME }} --resource-group ${{ env.RESOURCE-GROUP }} --src-path react-app/dist
