@@ -10,7 +10,6 @@ env:
   WEBAPP-NAME: Expanger-azure-san
 
 jobs:
-  jobs:
   buildandtest:
     runs-on: ubuntu-latest
     steps:
