@@ -35,10 +35,10 @@ jobs:
 
 
       # Zip the build output
-      # - name: Zip Vite dist folder
-      #   run: |
-      #     cd dist
-      #     zip -r ../app.zip .
+      - name: Zip Vite dist folder
+        run: |
+          cd dist
+          zip -r ../app.zip .
 
       # Upload build artifact
       - name: Upload artifact for deployment
